@@ -1,4 +1,6 @@
 <?php
+require_once("app/config/config.php");
+require_once("app/controller/Main_Controller.php");
 
 // Function to load controllers dynamically
 function loadController($controllerName)
@@ -10,6 +12,13 @@ function loadController($controllerName)
         return true;
     }
     return false;
+}
+
+function __load_assets__($classname, $type) {
+    $mainController = new Main_Controller();
+
+    $mainController->load_assets($classname, $type);
+
 }
 
 $url = isset($_GET['url']) ? $_GET['url'] : '';

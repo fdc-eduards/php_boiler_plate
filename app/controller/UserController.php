@@ -9,6 +9,11 @@ class UserController extends Main_Controller
     {
         $this->for_table = 'users';
     }
+
+    public function index() {
+        $this->load_view("user", "index");
+    }
+
     public function users($name)
     {
         echo "Username: {$name}";

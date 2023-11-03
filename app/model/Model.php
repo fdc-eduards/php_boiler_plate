@@ -1,5 +1,11 @@
 <?php
 
+ORM::configure([
+    'connection_string' => 'mysql:host=mysql;dbname=boilerplate',
+    'username' => 'root',
+    'password' => 'root'
+]);
+
 class Model
 {
 
