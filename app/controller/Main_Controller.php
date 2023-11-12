@@ -57,7 +57,7 @@ class Main_Controller
             print_r($isDebug);
             return;
         }
-
+        header('Content-Type: application/json');
         echo json_encode($data);
     }
 }

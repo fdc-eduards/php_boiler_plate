@@ -1,6 +1,5 @@
 <?php
-require_once("app/config/config.php");
-require_once("app/controller/Main_Controller.php");
+require("app/config/config.php");
 
 // Function to load controllers dynamically
 function loadController($controllerName)
@@ -14,13 +13,6 @@ function loadController($controllerName)
     return false;
 }
 
-function __load_assets__($classname, $type) {
-    $mainController = new Main_Controller();
-
-    $mainController->load_assets($classname, $type);
-
-}
-
 $url = isset($_GET['url']) ? $_GET['url'] : '';
 
 // Split the URL into an array
@@ -30,7 +22,7 @@ $urlParts = explode('/', $url);
 $controller = array_shift($urlParts);
 
 if (empty($controller)) {
-    $controller = 'default'; // Set a default controller if none provided
+    $controller = DEFAULT_CONTROLLER; // Set a default controller if none provided
 }
 
 $action = array_shift($urlParts);

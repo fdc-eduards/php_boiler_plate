@@ -16,6 +16,11 @@ class Model
         $this->_table = $table_name;
     }
 
+    public function initORM()
+    {
+        return ORM::for_table($this->_table);
+    }
+
     public function insert_db(array $params)
     {
         $table = ORM::for_table($this->_table)->create();
